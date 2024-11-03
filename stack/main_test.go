@@ -13,11 +13,11 @@ func TestNewStack(t *testing.T) {
 
 func TestStackPush(t *testing.T) {
 	s := New[int]()
-	
+
 	s.Push(1)
 	s.Push(2)
 	s.Push(3)
-	
+
 	if actualValue := s.Len(); actualValue != 3 {
 		t.Errorf("Got %v expected %v", actualValue, 3)
 	}

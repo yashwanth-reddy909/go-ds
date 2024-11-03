@@ -13,11 +13,11 @@ func TestNewQueue(t *testing.T) {
 
 func TestQueuePush(t *testing.T) {
 	q := New[int]()
-	
+
 	q.Push(1)
 	q.Push(2)
 	q.Push(3)
-	
+
 	if actualValue := q.Len(); actualValue != 3 {
 		t.Errorf("Got %v expected %v", actualValue, 3)
 	}
@@ -28,7 +28,7 @@ func TestQueuePush(t *testing.T) {
 
 func TestQueuePop(t *testing.T) {
 	q := New[int]()
-	
+
 	q.Push(1)
 	q.Push(2)
 
