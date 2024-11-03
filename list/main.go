@@ -10,14 +10,18 @@ type List[T any] struct {
 	elements []T
 }
 
+// New returns a new intialized list
 func New[T any]() *List[T] {
 	return &List[T]{}
 }
 
+// append adds an element to the end of the list
 func (l *List[T]) Append(e T) {
 	l.elements = append(l.elements, e)
 }
 
+// Get returns the element at the given index
+// return ok false if the index is out of bounds
 func (l *List[T]) Get(i int) (T, bool) {
 	if i < 0 || i >= len(l.elements) {
 		var t T
