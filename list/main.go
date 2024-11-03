@@ -14,24 +14,24 @@ func New[T any]() *List[T] {
 	return &List[T]{}
 }
 
-func (q *List[T]) Append(e T) {
-	q.elements = append(q.elements, e)
+func (l *List[T]) Append(e T) {
+	l.elements = append(l.elements, e)
 }
 
-func (q *List[T]) Get(i int) (T, bool) {
-	if i < 0 || i >= len(q.elements) {
+func (l *List[T]) Get(i int) (T, bool) {
+	if i < 0 || i >= len(l.elements) {
 		var t T
 		return t, false
 	}
-	return q.elements[i], true
+	return l.elements[i], true
 }
 
 // shrink shrinks the list if the ratio of length to capacity is less than shrinkFactor
-func (q *List[T]) shrink() {
-	if cap(q.elements) != 0 && float32(len(q.elements)/cap(q.elements)) <= shrinkFactor {
-		newList := make([]T, len(q.elements))
-		copy(newList, q.elements)
-		q.elements = newList
+func (l *List[T]) shrink() {
+	if cap(l.elements) != 0 && float32(len(l.elements)/cap(l.elements)) <= shrinkFactor {
+		newList := make([]T, len(l.elements))
+		copy(newList, l.elements)
+		l.elements = newList
 	}
 }
 
@@ -40,31 +40,35 @@ func (q *List[T]) shrink() {
 //
 // time complexity of this function is O(len(l)-index)
 // sometimes O(n), if shrink happens
-func (q *List[T]) Remove(index int) bool {
-	if index < 0 || index >= len(q.elements) {
+func (l *List[T]) Remove(index int) bool {
+	if index < 0 || index >= len(l.elements) {
 		return false
 	}
 
-	q.elements = slices.Delete(q.elements, index, index+1)
-	q.shrink()
+	l.elements = slices.Delete(l.elements, index, index+1)
+	l.shrink()
 	return true
 }
 
 // RemoveFirstNElements removes the first n elements from the list
-func (q *List[T]) RemoveFirstNElements(n int) bool {
-	if len(q.elements) < n {
+func (l *List[T]) RemoveFirstNElements(n int) bool {
+	if len(l.elements) < n {
 		return false
 	}
 
-	q.elements = q.elements[n:]
-	q.shrink()
+	l.elements = l.elements[n:]
+	l.shrink()
 	return true
 }
 
-func (q *List[T]) Len() int {
-	return len(q.elements)
+func (l *List[T]) Len() int {
+	return len(l.elements)
 }
 
-func (q *List[T]) IsEmpty() bool {
-	return q.Len() == 0
+func (l *List[T]) IsEmpty() bool {
+	return l.Len() == 0
+}
+
+func (l *List[T]) Clear() {
+	l.elements = []T{}
 }

@@ -49,3 +49,8 @@ func (q *Queue[T]) Len() int {
 func (q *Queue[T]) IsEmpty() bool {
 	return q.list.IsEmpty()
 }
+
+// Clear removes all the elements from the queue
+func (q *Queue[T]) Clear() {
+	q.list.Clear()
+}

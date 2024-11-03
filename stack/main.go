@@ -49,3 +49,8 @@ func (s *Stack[T]) Len() int {
 func (s *Stack[T]) IsEmpty() bool {
 	return s.list.IsEmpty()
 }
+
+// Clear removes all the elements from the stack
+func (s *Stack[T]) Clear() {
+	s.list.Clear()
+}
