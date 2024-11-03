@@ -13,11 +13,14 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v4
         
-        - name: Publish
+        - name: Set up Go
           uses: actions/setup-go@v4
           with:
             go-version: '1.22.1'
             cache: false
+         
+        - name: Publish
           run: |
             export GOPROXY=proxy.golang.org 
             go list -m github.com/yashwanth-reddy909/go-ds@${{ github.ref_name }}
+
