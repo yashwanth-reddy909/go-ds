@@ -20,4 +20,4 @@ jobs:
             cache: false
           run: |
             export GOPROXY=proxy.golang.org 
-            go list -m example.com/mymodule@${{ github.ref_name }}
+            go list -m github.com/yashwanth-reddy909/go-ds@${{ github.ref_name }}
