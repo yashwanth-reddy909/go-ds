@@ -30,8 +30,8 @@ func (q *Queue[T]) Pop() bool {
 	return true
 }
 
-// Top returns the first element from the queue
-func (q *Queue[T]) Top() (T, bool) {
+// Front returns the first element from the queue
+func (q *Queue[T]) Front() (T, bool) {
 	if q.IsEmpty() {
 		var t T
 		return t, false

@@ -2,9 +2,15 @@
 Efficient implementations of data structures such as list, stack and queue. Ready to GO !!!
 
 
+## Installation
+
+```bash
+go get github.com/yashwanth-reddy909/go-ds
+```
+
 ## Examples
 
-### Lists
+### list
  
 ```go
 package main
@@ -49,9 +55,12 @@ func main() {
 	s.Push(1)
 	s.Push(2)
 
-	fmt.Println(s.Top()) // 2 true
+	top, ok := s.Top()
+	if ok {
+		fmt.Println("top element:", top) // 2
+	}
 
-	ok := s.Pop()
+	ok = s.Pop()
 	if ok {
 		fmt.Println("pop successful")
 	}
@@ -75,9 +84,12 @@ func main() {
 	q.Push(1)
 	q.Push(2)
 
-	fmt.Println(q.Top()) // 1
-	
-	ok := q.Pop() // true
+	front, ok := q.Front()
+	if ok {
+		fmt.Println("front element:", front) // 1
+	}
+
+	ok = q.Pop() // true
 	if ok {
 		fmt.Println("pop successful")
 	}
