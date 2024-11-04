@@ -21,7 +21,7 @@ func TestQueuePush(t *testing.T) {
 	if actualValue := q.Len(); actualValue != 3 {
 		t.Errorf("Got %v expected %v", actualValue, 3)
 	}
-	if actualValue, ok := q.Top(); actualValue != 1 || ok != true {
+	if actualValue, ok := q.Front(); actualValue != 1 || ok != true {
 		t.Errorf("Got %v, %v expected %v, %v", actualValue, ok, 1, true)
 	}
 }
@@ -39,7 +39,7 @@ func TestQueuePop(t *testing.T) {
 	if actualValue := q.Len(); actualValue != 1 {
 		t.Errorf("Got %v expected %v", actualValue, 1)
 	}
-	if actualValue, ok := q.Top(); actualValue != 2 || ok != true {
+	if actualValue, ok := q.Front(); actualValue != 2 || ok != true {
 		t.Errorf("Got %v, %v expected %v, %v", actualValue, ok, 2, true)
 	}
 
