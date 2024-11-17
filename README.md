@@ -107,18 +107,18 @@ package main
 import (
 	"fmt"
 
-	"github.com/yashwanth-reddy909/go-ds/heaps"
+	"github.com/yashwanth-reddy909/go-ds/heap"
 )
 
 func main() {
-	heap := heaps.New[int]()
+	heap := heap.New[int]()
 	heap.Push(3)
 	heap.Push(2)
 	heap.Push(1)
 
 	k, isPresent := heap.Peek()
 	if isPresent {
-		fmt.Println("top element is", k)
+		fmt.Println("top element is", k) // 1
 	}
 
 	heap.Clear()
