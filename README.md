@@ -1,6 +1,8 @@
 # go-ds
 Efficient implementations of data structures such as list, stack and queue. Ready to GO !!!
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/yashwanth-reddy909/go-ds)](https://goreportcard.com/report/github.com/yashwanth-reddy909/go-ds) 
+[![Github Workflow](https://github.com/yashwanth-reddy909/go-ds/actions/workflows/main.yaml/badge.svg)](https://github.com/yashwanth-reddy909/go-ds/actions/workflows/main.yaml/badge.svg)
 
 ## Installation
 
@@ -55,7 +57,7 @@ func main() {
 	s.Push(1)
 	s.Push(2)
 
-	top, ok := s.Top()
+	top, ok := s.Peek()
 	if ok {
 		fmt.Println("top element:", top) // 2
 	}
@@ -84,7 +86,7 @@ func main() {
 	q.Push(1)
 	q.Push(2)
 
-	front, ok := q.Front()
+	front, ok := q.Peek()
 	if ok {
 		fmt.Println("front element:", front) // 1
 	}
@@ -98,3 +100,27 @@ func main() {
 }
 ```
 
+### heap
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/yashwanth-reddy909/go-ds/heaps"
+)
+
+func main() {
+	heap := heaps.New[int]()
+	heap.Push(3)
+	heap.Push(2)
+	heap.Push(1)
+
+	k, isPresent := heap.Peek()
+	if isPresent {
+		fmt.Println("top element is", k)
+	}
+
+	heap.Clear()
+}
+```

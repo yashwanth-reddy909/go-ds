@@ -21,7 +21,7 @@ func TestStackPush(t *testing.T) {
 	if actualValue := s.Len(); actualValue != 3 {
 		t.Errorf("Got %v expected %v", actualValue, 3)
 	}
-	if actualValue, ok := s.Top(); actualValue != 3 || ok != true {
+	if actualValue, ok := s.Peek(); actualValue != 3 || ok != true {
 		t.Errorf("Got %v, %v expected %v, %v", actualValue, ok, 3, true)
 	}
 }
@@ -35,7 +35,7 @@ func TestStackPop(t *testing.T) {
 	if actualValue := s.Pop(); actualValue != true {
 		t.Errorf("Got %v expected %v", actualValue, true)
 	}
-	if actualValue, ok := s.Top(); actualValue != 1 || ok != true {
+	if actualValue, ok := s.Peek(); actualValue != 1 || ok != true {
 		t.Errorf("Got %v expected %v", actualValue, 1)
 	}
 	if actualValue := s.Len(); actualValue != 1 {
