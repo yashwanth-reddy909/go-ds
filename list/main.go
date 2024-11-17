@@ -76,3 +76,20 @@ func (l *List[T]) IsEmpty() bool {
 func (l *List[T]) Clear() {
 	l.elements = []T{}
 }
+
+// Swap returns true if successfully swaped
+// if i, j are out of indexed then returns false
+func (l *List[T]) Swap(i, j int) bool {
+	if i >= 0 && j >= 0 && i < l.Len() && j < l.Len() {
+		l.elements[i], l.elements[j] = l.elements[j], l.elements[i]
+		return true
+	}
+	return false
+}
+
+func (l *List[T]) Print() {
+	for i := 0; i < l.Len(); i++ {
+		print(l.elements[i], " ")
+	}
+	println()
+}

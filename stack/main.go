@@ -30,8 +30,8 @@ func (s *Stack[T]) Pop() bool {
 	return true
 }
 
-// Top returns the last element from the stack
-func (s *Stack[T]) Top() (T, bool) {
+// Peek returns the last element from the stack
+func (s *Stack[T]) Peek() (T, bool) {
 	if s.list.IsEmpty() {
 		var t T
 		return t, false
